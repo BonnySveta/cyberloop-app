@@ -1,3 +1,25 @@
-<p>login works!</p>
+{{checkUserInfo()}}
 
-<div id="firebaseui-auth-container"></div>
+<div *ngIf="!authService.isUserEmailLoggedIn">
+	<div >
+		<p *ngIf="errorMessage.length > 0" class="text-danger">
+			{{errorMessage}}</p>
+
+		<form (ngSubmit)="onSignIn()">
+			<div class="form-group">
+				<label for="email">Email</label>
+				<input type="email" class="form-control" id="email" name="email" required [(ngModel)]="email">
+			</div>
+
+			<div class="form-group">
+				<label for="password">Password</label>
+				<input type="password" class="form-control" id="password" name="password" required [(ngModel)]="password">
+			</div>
+
+			<button type="submit" class="btn btn-success">Log In </button>
+		</form>
+	</div>
+</div>
+<div *ngIf="authService.isUserEmailLoggedIn">
+    hello
+</div>
