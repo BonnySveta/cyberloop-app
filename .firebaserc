@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "cyberloop-fire": {
+      "hosting": {
+        "cyberloop-app": [
+          "cyberloop-fire"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "cyberloop-fire"
+  }
+}
