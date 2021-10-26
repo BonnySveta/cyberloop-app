@@ -5,6 +5,7 @@ import { interval , range} from "rxjs";
 import { take, finalize } from "rxjs/operators";
 import { of } from 'rxjs';
 import { tap, repeat , concatMap} from 'rxjs/operators';
+import {LiveService} from '../live.service';
 
 
 
@@ -13,7 +14,13 @@ import { tap, repeat , concatMap} from 'rxjs/operators';
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
+
+
+
 export class HomeComponent  {
+
+  constructor(public liveService: LiveService) { }
+
   ngOnInit() {
     this.add();
   }
@@ -41,6 +48,8 @@ export class HomeComponent  {
   add() { 
     interval(1000).pipe(
       concatMap(i => of(Math.floor(Math.floor(Math.random()*65) - 25)).pipe())
-    ).subscribe(val => this.chart.addPoint(val));
+    ).subscribe(val => {this.chart.addPoint(val);
+    this.liveService.addRecord(val);
+    });
   }
 }
