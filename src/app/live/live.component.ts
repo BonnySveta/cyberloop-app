@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./live.component.css']
 })
 export class LiveComponent implements OnInit {
+  
 
   constructor() { }
 
