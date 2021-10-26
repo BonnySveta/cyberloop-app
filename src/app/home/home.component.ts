@@ -15,8 +15,6 @@ import { tap, repeat , concatMap} from 'rxjs/operators';
 })
 export class HomeComponent  {
   ngOnInit() {
-    console.log('ngOnInit');
-    
     this.add();
   }
 

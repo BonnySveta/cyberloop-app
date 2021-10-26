@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
 
   checkUserInfo() {
     if (this.authService.isUserEmailLoggedIn) {
-      this.router.navigate(['/home'])
+     // this.router.navigate(['/home'])
     }
   }
 
@@ -38,12 +38,10 @@ export class LoginComponent implements OnInit {
     this.clearErrorMessage()
 
     if (this.validateForm(this.email, this.password)) {
-      console.log('1');
       this.authService.signIn(this.email, this.password)
         .then(() => console.log('Hi'))
         .catch(_error => {
           this.error = _error
-          console.log('Bye')
         })
     }
   }

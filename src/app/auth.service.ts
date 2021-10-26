@@ -29,7 +29,7 @@ export class AuthService {
       .then((user) => {
         this.authState = user;
         console.log('user' , user);
-        
+        this.router.navigate(['/home']);
       })
       .catch(error => {
         console.log(error)
@@ -38,7 +38,7 @@ export class AuthService {
   }
 
   signOut(): void {
+    this.router.navigate(['/login'])
     this.afAuth.signOut();
-    this.router.navigate(['/'])
   }
 }
